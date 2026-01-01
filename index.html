@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peluquería Llongueras BA | Turnos, Color, Barbería y Productos</title>
+  <meta name="description" content="Peluquería en Buenos Aires. Turnos online, cortes, color, tratamientos, barbería y productos profesionales con descuentos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <span class="brand-logo">LL</span>
+        <span class="brand-name">Llongueras</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#servicios">Servicios</a>
+        <a href="#precios">Precios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#productos">Productos</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a class="nav-cta" href="#turnos">Turnos</a>
+      </nav>
+
+      <a class="whatsapp-pill" href="https://wa.me/5490000000000?text=Hola!%20Quiero%20reservar%20un%20turno." target="_blank" rel="noopener">
+        WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO VIDEO -->
+  <section class="hero" aria-label="Hero con video">
+    <div class="hero-media" aria-hidden="true">
+      <video class="hero-video" autoplay muted loop playsinline poster="images/hero-fallback.jpg">
+        <source src="videos/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-kicker">Buenos Aires · Color · Corte · Barbería</div>
+      <h1 class="hero-title">Tu look soñado empieza con un turno.</h1>
+      <p class="hero-subtitle">
+        Estilismo, color y barbería en un espacio premium. Reservá en segundos o consultá por WhatsApp.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#turnos">Reservar turno</a>
+        <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+      </div>
+
+      <div class="hero-badges">
+        <span class="badge">Atención con turno</span>
+        <span class="badge">Profesionales certificados</span>
+        <span class="badge">Productos originales</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TURNOS -->
+  <section id="turnos" class="section section-dark">
+    <div class="container turnos">
+      <div class="turnos-left">
+        <h2>Reservá tu turno</h2>
+        <p>
+          Elegí servicio, profesional y horario. Si preferís, escribinos por WhatsApp y te lo coordinamos.
+        </p>
+
+        <div class="turnos-quick">
+          <a class="quick" href="#precios">Ver precios</a>
+          <a class="quick" href="#productos">Ver ofertas</a>
+          <a class="quick" href="#ubicacion">Cómo llegar</a>
+        </div>
+      </div>
+
+      <form class="turnos-form" onsubmit="event.preventDefault(); alert('Demo: conectalo luego a tu sistema de turnos (Calendly / Booksy / etc.)');">
+        <div class="grid-2">
+          <label>
+            Servicio
+            <select required>
+              <option value="" selected disabled>Elegí un servicio</option>
+              <option>Corte (Femenino)</option>
+              <option>Corte (Masculino)</option>
+              <option>Barbería (Corte + Barba)</option>
+              <option>Color / Mechas</option>
+              <option>Tratamiento</option>
+              <option>Peinado</option>
+            </select>
+          </label>
+
+          <label>
+            Profesional
+            <select required>
+              <option value="" selected disabled>Elegí profesional</option>
+              <option>Sofía</option>
+              <option>Martín</option>
+              <option>Valentina</option>
+              <option>Equipo</option>
+            </select>
+          </label>
+
+          <label>
+            Fecha
+            <input type="date" required>
+          </label>
+
+          <label>
+            Hora
+            <input type="time" required>
+          </label>
+        </div>
+
+        <label>
+          Nombre y WhatsApp
+          <input type="text" placeholder="Ej: Lucas · +54 11 1234 5678" required>
+        </label>
+
+        <button class="btn btn-primary w100" type="submit">Confirmar solicitud</button>
+
+        <a class="btn btn-dark w100" href="https://wa.me/5490000000000?text=Hola!%20Quiero%20reservar%20un%20turno.%20Servicio:%20____%20Fecha:%20____%20Hora:%20____" target="_blank" rel="noopener">
+          Reservar por WhatsApp
+        </a>
+
+        <p class="form-note">Te confirmamos disponibilidad y te enviamos la reserva.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="section section-light">
+    <div class="container">
+      <div class="section-head">
+        <h2>Servicios</h2>
+        <p>Elegí lo que necesitás. Trabajamos con diagnóstico y productos profesionales.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <div class="icon">✂</div>
+          <h3>Corte & Styling</h3>
+          <p>Cortes femeninos y masculinos, asesoramiento de rostro y peinados.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🎨</div>
+          <h3>Color & Mechas</h3>
+          <p>Color global, balayage, babylights, correcciones y gloss.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🧔</div>
+          <h3>Barbería</h3>
+          <p>Fade, corte clásico, barba, perfilado y toalla caliente.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🧴</div>
+          <h3>Tratamientos</h3>
+          <p>Hidratación profunda, reconstrucción, anti-frizz y scalp care.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">💄</div>
+          <h3>Peinado & Eventos</h3>
+          <p>Brushing, ondas, recogidos y preparación para eventos.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">✨</div>
+          <h3>Pack Premium</h3>
+          <p>Diagnóstico + servicio + tratamiento recomendado para tu cabello.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section id="precios" class="section section-white">
+    <div class="container">
+      <div class="section-head center">
+        <h2>Precios</h2>
+        <p>Valores orientativos. Color y tratamientos dependen de largo y diagnóstico.</p>
+      </div>
+
+      <div class="pricing">
+        <article class="price-card">
+          <h3>Cortes</h3>
+          <ul>
+            <li><span>Corte (Femenino)</span><b>$ 18.000</b></li>
+            <li><span>Corte (Masculino)</span><b>$ 14.000</b></li>
+            <li><span>Brushing</span><b>$ 12.000</b></li>
+          </ul>
+          <a class="btn btn-outline w100" href="#turnos">Reservar</a>
+        </article>
+
+        <article class="price-card featured">
+          <div class="ribbon">Más pedido</div>
+          <h3>Color</h3>
+          <ul>
+            <li><span>Color global</span><b>desde $ 28.000</b></li>
+            <li><span>Balayage</span><b>desde $ 45.000</b></li>
+            <li><span>Gloss / Toner</span><b>desde $ 20.000</b></li>
+          </ul>
+          <a class="btn btn-primary w100" href="#turnos">Reservar</a>
+        </article>
+
+        <article class="price-card">
+          <h3>Barbería</h3>
+          <ul>
+            <li><span>Corte + Barba</span><b>$ 18.000</b></li>
+            <li><span>Barba</span><b>$ 9.000</b></li>
+            <li><span>Perfilado</span><b>$ 7.000</b></li>
+          </ul>
+          <a class="btn btn-outline w100" href="#turnos">Reservar</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria" class="section section-light">
+    <div class="container">
+      <div class="section-head">
+        <h2>Galería</h2>
+        <p>Trabajos reales. Antes/Después, color, cortes y barbería.</p>
+      </div>
+
+      <div class="gallery">
+        <figure class="g-item"><img src="images/g1.jpg" alt="Trabajo 1"></figure>
+        <figure class="g-item"><img src="images/g2.jpg" alt="Trabajo 2"></figure>
+        <figure class="g-item"><img src="images/g3.jpg" alt="Trabajo 3"></figure>
+        <figure class="g-item"><img src="images/g4.jpg" alt="Trabajo 4"></figure>
+        <figure class="g-item"><img src="images/g5.jpg" alt="Trabajo 5"></figure>
+        <figure class="g-item"><img src="images/g6.jpg" alt="Trabajo 6"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEÑAS -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-head center">
+        <h2>Reseñas</h2>
+        <p>Clientes que vuelven por la calidad, el asesoramiento y la atención.</p>
+      </div>
+
+      <div class="reviews">
+        <article class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Me dejaron el color perfecto y el brillo increíble. Volví a reservar en el momento.”</p>
+          <span class="who">— Camila</span>
+        </article>
+        <article class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Barbería excelente. Fade prolijo y barba impecable, ambiente premium.”</p>
+          <span class="who">— Nicolás</span>
+        </article>
+        <article class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Te asesoran según tu pelo. El tratamiento se notó desde el primer día.”</p>
+          <span class="who">— Sofía</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS con descuento (blanco) -->
+  <section id="productos" class="section section-white">
+    <div class="container">
+      <div class="section-head center">
+        <h2>¡Ofertas de fin de año!</h2>
+        <p>Productos profesionales con descuento. Stock limitado.</p>
+      </div>
+
+      <div class="products-toolbar">
+        <div class="toolbar-left">
+          <span class="pill">Retiro en salón</span>
+          <span class="pill">Envíos</span>
+          <span class="pill">Pago en el local</span>
+        </div>
+        <a class="toolbar-link" href="#ubicacion">Ver horarios →</a>
+      </div>
+
+      <div class="products-grid">
+        <article class="product-card">
+          <div class="product-badge">-20%</div>
+          <div class="product-image">
+            <img src="images/product-1.jpg" alt="Kit reparación">
+          </div>
+          <div class="product-body">
+            <h3 class="product-title">Kit Reparación</h3>
+            <p class="product-desc">Shampoo + máscara + sérum.</p>
+            <div class="product-price">
+              <span class="old">$ 327.000</span>
+              <span class="new">$ 245.600</span>
+            </div>
+            <a class="btn btn-cart" href="#turnos">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-badge">-20%</div>
+          <div class="product-image">
+            <img src="images/product-2.jpg" alt="Kit shampoo y acondicionador">
+          </div>
+          <div class="product-body">
+            <h3 class="product-title">Kit Shampoo + Acond.</h3>
+            <p class="product-desc">Rutina diaria brillo & suavidad.</p>
+            <div class="product-price">
+              <span class="old">$ 314.000</span>
+              <span class="new">$ 251.200</span>
+            </div>
+            <a class="btn btn-cart" href="#turnos">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-badge">-10%</div>
+          <div class="product-image">
+            <img src="images/product-3.jpg" alt="Shampoo disciplina">
+          </div>
+          <div class="product-body">
+            <h3 class="product-title">Shampoo Disciplina 250ml</h3>
+            <p class="product-desc">Control frizz y definición.</p>
+            <div class="product-price">
+              <span class="old">$ 82.000</span>
+              <span class="new">$ 73.800</span>
+            </div>
+            <a class="btn btn-cart" href="#turnos">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-badge">-9%</div>
+          <div class="product-image">
+            <img src="images/product-4.jpg" alt="Shampoo scalp care">
+          </div>
+          <div class="product-body">
+            <h3 class="product-title">Shampoo Scalp Care 250ml</h3>
+            <p class="product-desc">Equilibrio y frescura.</p>
+            <div class="product-price">
+              <span class="old">$ 82.000</span>
+              <span class="new">$ 75.000</span>
+            </div>
+            <a class="btn btn-cart" href="#turnos">Añadir al carrito</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="note">
+        <strong>Tip:</strong> podés linkear cada producto a “WhatsApp compra” o a una tienda online real.
+      </div>
+    </div>
+  </section>
+
+  <!-- UBICACIÓN / HORARIOS -->
+  <section id="ubicacion" class="section section-light">
+    <div class="container location">
+      <div class="loc-card">
+        <h2>Ubicación</h2>
+        <p>
+          Av. Ejemplo 1234, Palermo · CABA<br/>
+          <b>Horarios:</b> Lun–Sáb 10:00–20:00 · Dom cerrado
+        </p>
+
+        <div class="loc-actions">
+          <a class="btn btn-dark" href="https://maps.google.com" target="_blank" rel="noopener">Cómo llegar</a>
+          <a class="btn btn-outline" href="tel:+541100000000">Llamar</a>
+        </div>
+
+        <div class="loc-mini">
+          <div class="mini-box">
+            <span class="mini-k">Turnos</span>
+            <span class="mini-v">WhatsApp</span>
+          </div>
+          <div class="mini-box">
+            <span class="mini-k">Pagos</span>
+            <span class="mini-v">Efectivo / Transfer</span>
+          </div>
+          <div class="mini-box">
+            <span class="mini-k">Servicios</span>
+            <span class="mini-v">F/M</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="map">
+        <!-- Reemplazá por iframe real de Google Maps cuando quieras -->
+        <div class="map-placeholder">
+          <div class="map-title">Mapa</div>
+          <div class="map-sub">Insertá el iframe de Google Maps</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="foot-left">
+        <div class="foot-brand">Llongueras BA</div>
+        <p>Corte · Color · Barbería · Tratamientos · Productos</p>
+      </div>
+
+      <div class="foot-right">
+        <a href="#turnos">Turnos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#productos">Ofertas</a>
+        <a href="#ubicacion">Ubicación</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp floating -->
+  <a class="float-wa" href="https://wa.me/5490000000000?text=Hola!%20Quiero%20reservar%20un%20turno." target="_blank" rel="noopener" aria-label="WhatsApp">
+    WA
+  </a>
+</body>
+</html>
