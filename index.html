@@ -29,6 +29,11 @@
         <a class="nav-cta" href="#turnos">Turnos</a>
       </nav>
 
+      <div class="open-status" id="openStatus">
+        <span class="dot"></span>
+        <span class="text">Cargando…</span>
+      </div>
+
       <a class="whatsapp-pill" href="https://wa.me/5490000000000?text=Hola!%20Quiero%20reservar%20un%20turno." target="_blank" rel="noopener">
         WhatsApp
       </a>
@@ -39,7 +44,7 @@
   <section class="hero" aria-label="Hero con video">
     <div class="hero-media" aria-hidden="true">
       <video class="hero-video" autoplay muted loop playsinline poster="images/hero-fallback.jpg">
-        <source src="videos/hero.mp4" type="video/mp4">
+        <source src="assets/video10.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
     </div>
@@ -232,14 +237,29 @@
         <p>Trabajos reales. Antes/Después, color, cortes y barbería.</p>
       </div>
 
-      <div class="gallery">
-        <figure class="g-item"><img src="images/g1.jpg" alt="Trabajo 1"></figure>
-        <figure class="g-item"><img src="images/g2.jpg" alt="Trabajo 2"></figure>
-        <figure class="g-item"><img src="images/g3.jpg" alt="Trabajo 3"></figure>
-        <figure class="g-item"><img src="images/g4.jpg" alt="Trabajo 4"></figure>
-        <figure class="g-item"><img src="images/g5.jpg" alt="Trabajo 5"></figure>
-        <figure class="g-item"><img src="images/g6.jpg" alt="Trabajo 6"></figure>
-      </div>
+      <!-- GALERÍA DE VIDEOS -->
+<section class="section section-white">
+  <div class="container video-gallery">
+    <div class="section-head">
+      <h2>Videos reales del salón</h2>
+      <p>Ambiente, cortes, color y detalles que marcan la diferencia.</p>
+    </div>
+
+    <div class="video-grid">
+      <video src="assets/video.mp4" muted loop playsinline></video>
+      <video src="assets/video1.mp4" muted loop playsinline></video>
+      <img src="assets/video2.jpg" alt="Trabajo de peluquería">
+      <img src="assets/video3.jpg" alt="Trabajo de peluquería">
+      <video src="assets/video4.mp4" muted loop playsinline></video>
+      <video src="assets/video5.mp4" muted loop playsinline></video>
+      <video src="assets/video6.mp4" muted loop playsinline></video>
+      <video src="assets/video7.mp4" muted loop playsinline></video>
+      <video src="assets/video8.mp4" muted loop playsinline></video>
+      <video src="assets/video9.mp4" muted loop playsinline></video>
+      <video src="assets/video10.mp4" muted loop playsinline></video>
+    </div>
+  </div>
+</section>
     </div>
   </section>
 
@@ -292,7 +312,7 @@
         <article class="product-card">
           <div class="product-badge">-20%</div>
           <div class="product-image">
-            <img src="images/product-1.jpg" alt="Kit reparación">
+            <img src="assets/producto7.jpg" alt="Kit reparación">
           </div>
           <div class="product-body">
             <h3 class="product-title">Kit Reparación</h3>
@@ -308,7 +328,7 @@
         <article class="product-card">
           <div class="product-badge">-20%</div>
           <div class="product-image">
-            <img src="images/product-2.jpg" alt="Kit shampoo y acondicionador">
+            <img src="assets/producto6.jpg" alt="Kit shampoo y acondicionador">
           </div>
           <div class="product-body">
             <h3 class="product-title">Kit Shampoo + Acond.</h3>
@@ -324,7 +344,7 @@
         <article class="product-card">
           <div class="product-badge">-10%</div>
           <div class="product-image">
-            <img src="images/product-3.jpg" alt="Shampoo disciplina">
+            <img src="assets/producto3.jpg" alt="Shampoo disciplina">
           </div>
           <div class="product-body">
             <h3 class="product-title">Shampoo Disciplina 250ml</h3>
@@ -340,7 +360,7 @@
         <article class="product-card">
           <div class="product-badge">-9%</div>
           <div class="product-image">
-            <img src="images/product-4.jpg" alt="Shampoo scalp care">
+            <img src="assets/producto4.jpg" alt="Shampoo scalp care">
           </div>
           <div class="product-body">
             <h3 class="product-title">Shampoo Scalp Care 250ml</h3>
@@ -422,5 +442,49 @@
   <a class="float-wa" href="https://wa.me/5490000000000?text=Hola!%20Quiero%20reservar%20un%20turno." target="_blank" rel="noopener" aria-label="WhatsApp">
     WA
   </a>
+  <script>
+  document.querySelectorAll('.video-grid video').forEach(video => {
+    video.addEventListener('mouseenter', () => {
+      video.play();
+    });
+
+    video.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+(function () {
+  const statusEl = document.getElementById("openStatus");
+  if (!statusEl) return;
+
+  // HORARIOS DEL SALÓN
+  // 0 = Domingo, 1 = Lunes, ... 6 = Sábado
+  const schedule = {
+    1: { open: 10, close: 20 }, // Lunes
+    2: { open: 10, close: 20 }, // Martes
+    3: { open: 10, close: 20 }, // Miércoles
+    4: { open: 10, close: 20 }, // Jueves
+    5: { open: 10, close: 20 }, // Viernes
+    6: { open: 10, close: 20 }, // Sábado
+    // Domingo cerrado
+  };
+
+  const now = new Date();
+  const day = now.getDay();
+  const hour = now.getHours();
+
+  const today = schedule[day];
+
+  if (today && hour >= today.open && hour < today.close) {
+    statusEl.classList.remove("closed");
+    statusEl.querySelector(".text").textContent = "Abierto ahora";
+  } else {
+    statusEl.classList.add("closed");
+    statusEl.querySelector(".text").textContent = "Cerrado ahora";
+  }
+})();
+
+</script>
+
 </body>
 </html>
