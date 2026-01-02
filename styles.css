@@ -526,6 +526,10 @@ img{ max-width: 100%; display:block; }
   justify-content: space-between;
   gap: 18px;
 }
+footer p{ font-size: 0.88rem;
+  color: rgba(234,240,255,0.68);
+  letter-spacing: 0.02em;
+}
 .foot-brand{ font-weight: 900; letter-spacing: 0.3px; }
 .foot-left p{ margin-top: 6px; color: rgba(234,240,255,0.68); }
 .foot-right{ display:flex; gap: 12px; flex-wrap:wrap; color: rgba(234,240,255,0.75); }
@@ -835,4 +839,82 @@ img{ max-width: 100%; display:block; }
 .btn-cta-simple:hover{
   transform: translateY(-3px);
   box-shadow: 0 34px 90px rgba(200,163,106,0.40);
+}
+/* =========================
+   ICONOS SERVICIOS – PULSE CADA 5s + HOVER
+========================= */
+.cards-soft .card .icon{
+  position: relative;
+  display: grid;
+  place-items: center;
+
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+
+  background: rgba(200,163,106,0.18);
+  border: 1px solid rgba(200,163,106,0.35);
+  box-shadow: 0 10px 28px rgba(200,163,106,0.18);
+
+  /* importante: que la animación no mueva el layout */
+  will-change: transform, box-shadow, filter;
+  transform: translateZ(0);
+
+  transition: transform .18s ease, box-shadow .22s ease, filter .22s ease;
+
+  /* “titila” suave cada 5s */
+  animation: svcIconPulse 5s ease-in-out infinite;
+}
+
+/* Pulso: casi todo el tiempo quieto, y “vive” al final del ciclo */
+@keyframes svcIconPulse{
+  0%{
+    transform: scale(1);
+    box-shadow: 0 10px 28px rgba(200,163,106,0.18);
+    filter: saturate(1);
+  }
+  92%{
+    transform: scale(1);
+    box-shadow: 0 10px 28px rgba(200,163,106,0.18);
+    filter: saturate(1);
+  }
+  96%{
+    transform: scale(1.09);
+    box-shadow: 0 16px 48px rgba(200,163,106,0.36);
+    filter: saturate(1.15);
+  }
+  100%{
+    transform: scale(1);
+    box-shadow: 0 10px 28px rgba(201, 161, 102, 0.473);
+    filter: saturate(1);
+  }
+}
+
+/* Hover: más “vivo” y se pausa el pulso para que responda mejor */
+.cards-soft .card:hover .icon{
+  transform: scale(1.12) rotate(-2deg);
+  box-shadow: 0 22px 60px rgba(200,163,106,0.45);
+  filter: saturate(1.25);
+  animation-play-state: paused;
+}
+
+/* Brillito premium (opcional, queda muy bien) */
+.cards-soft .card .icon::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius: 14px;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.40), transparent 60%);
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events:none;
+}
+
+.cards-soft .card:hover .icon::after{
+  opacity: 1;
+}
+
+/* Accesibilidad: si el usuario prefiere menos animaciones */
+@media (prefers-reduced-motion: reduce){
+  .cards-soft .card .icon{ animation: none; }
 }
