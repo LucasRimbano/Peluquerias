@@ -526,10 +526,47 @@ img{ max-width: 100%; display:block; }
   justify-content: space-between;
   gap: 18px;
 }
-footer p{ font-size: 0.88rem;
+.footer p{ 
+  font-size: 0.88rem;
   color: rgba(234,240,255,0.68);
   letter-spacing: 0.02em;
 }
+/* FOOTER BOTTOM (copyright + tunegocioweb en la misma línea) */
+.footer-bottom{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 16px;
+
+  margin-top: 18px;
+  padding-top: 14px;
+ 
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+/* misma letra chica que el footer */
+.footer-copy,
+.footer-dev{
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(234,240,255,0.68);
+  letter-spacing: 0.02em;
+  margin-right: 5%;
+}
+
+/* link “tunegocioweb” discreto */
+.footer-dev a{
+  color: rgba(234,240,255,0.68);
+  text-decoration: none;
+  font-weight: 800;
+  transition: opacity .2s ease, color .2s ease;
+}
+
+.footer-dev a:hover{
+  color: #ffffff;
+  opacity: 0.9;
+}
+
 .foot-brand{ font-weight: 900; letter-spacing: 0.3px; }
 .foot-left p{ margin-top: 6px; color: rgba(234,240,255,0.68); }
 .foot-right{ display:flex; gap: 12px; flex-wrap:wrap; color: rgba(234,240,255,0.75); }
@@ -566,6 +603,8 @@ footer p{ font-size: 0.88rem;
   .products-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
   .location{ grid-template-columns: 1fr; }
   .footer-inner{ flex-direction: column; }
+  .footer-bottom{ flex-direction: column; align-items: flex-start; }
+
 }
 @media (max-width: 560px){
   .hero-content{ padding: 56px 0; }
