@@ -20,6 +20,15 @@
   --radius:18px;
   --shadow: 0 22px 60px rgba(0,0,0,0.55);
   --shadow-soft: 0 14px 40px rgba(0,0,0,0.32);
+  /* Paleta (ajustable) */
+
+  --cream: #fbf7ef;
+  --champagne: #f3e6cf;
+  --gold: #c8a36a;
+  --gold-2: #8c6b3e;
+  --ink: #0b0f18;
+  --muted-ink: rgba(17,24,39,.68);
+
 }
 
 html{ scroll-behavior: smooth; }
@@ -628,4 +637,202 @@ img{ max-width: 100%; display:block; }
   object-fit: cover;
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+/* =========================================================
+   BLOQUE SERVICIOS + PRECIOS (FONDO CON PALETA + CARDS PRO)
+========================================================= */
+
+
+/* Fondo con identidad (degradé + manchas + grano sutil) */
+.section-palette{
+  position: relative;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 620px at 20% 18%, rgba(200,163,106,0.20), transparent 55%),
+    radial-gradient(900px 520px at 82% 35%, rgba(140,107,62,0.10), transparent 60%),
+    linear-gradient(180deg, var(--cream), #ffffff);
+  overflow: hidden;
+  border-top: 1px solid rgba(14, 27, 56, 0.103)
+}
+
+.section-palette::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(800px 520px at 25% 10%, rgba(200,163,106,0.12), transparent 60%),
+    radial-gradient(700px 520px at 70% 60%, rgba(200,163,106,0.08), transparent 62%);
+  filter: blur(0px);
+  pointer-events:none;
+  opacity: 1;
+}
+
+.section-palette::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.05; /* grano */
+  pointer-events:none;
+}
+
+/* Headings con acento */
+.section-palette .section-head p{
+  color: var(--muted-ink);
+}
+
+.title-accent{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.title-accent span{
+  display: inline-block;
+  width: 64px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(200,163,106,0.0), rgba(200,163,106,0.55), rgba(200,163,106,0.0));
+  transform: translateY(6px);
+}
+
+.section-head.center .title-accent{
+  justify-content: center;
+}
+
+/* Cards más premium */
+.cards-soft .card,
+.pricing-soft .price-card{
+  position: relative;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(17,24,39,0.10);
+  border-radius: 18px;
+  box-shadow: 0 18px 55px rgba(17,24,39,0.08);
+  transition: transform .18s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.cards-soft .card::before,
+.pricing-soft .price-card::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(200,163,106,0.30), rgba(200,163,106,0.00) 55%);
+  opacity: 0;
+  pointer-events:none;
+  transition: opacity .22s ease;
+}
+
+.cards-soft .card:hover,
+.pricing-soft .price-card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(200,163,106,0.35);
+  box-shadow: 0 28px 75px rgba(17,24,39,0.12);
+}
+
+.cards-soft .card:hover::before,
+.pricing-soft .price-card:hover::before{
+  opacity: 1;
+}
+
+/* Iconos (más “marca”) */
+.cards-soft .icon{
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(200,163,106,0.18);
+  border: 1px solid rgba(200,163,106,0.35);
+  box-shadow: 0 12px 28px rgba(200,163,106,0.14);
+}
+
+/* Texto */
+.cards-soft .card h3{
+  color: rgba(17,24,39,0.92);
+}
+.cards-soft .card p{
+  color: rgba(17,24,39,0.68);
+}
+
+/* PRECIOS: lista más ordenada */
+.pricing-soft .price-card ul li{
+  border-bottom: 1px dashed rgba(17,24,39,0.14);
+}
+.pricing-soft .price-card ul li span{
+  color: rgba(17,24,39,0.72);
+}
+.pricing-soft .price-card ul li b{
+  color: rgba(17,24,39,0.92);
+}
+
+/* PRECIOS: destacada “Más pedido” (más premium) */
+.pricing-soft .featured{
+  border-color: rgba(200,163,106,0.55);
+  box-shadow: 0 34px 95px rgba(200,163,106,0.18);
+}
+
+.pricing-soft .featured::before{
+  opacity: 1;
+}
+
+/* Cinta mejorada */
+.pricing-soft .ribbon{
+  background: rgba(200,163,106,0.18);
+  border: 1px solid rgba(200,163,106,0.35);
+  color: rgba(17,24,39,0.86);
+  font-weight: 900;
+}
+
+/* Botones de Reservar dentro de tarjetas: más consistentes */
+.section-palette .btn-outline{
+  border-color: rgba(17,24,39,0.16);
+  background: rgba(255,255,255,0.85);
+}
+.section-palette .btn-outline:hover{
+  border-color: rgba(200,163,106,0.40);
+  box-shadow: 0 18px 45px rgba(200,163,106,0.12);
+}
+
+/* Responsive: más aire */
+@media (max-width: 980px){
+  .title-accent span{ width: 46px; }
+}
+/* Separador elegante */
+.section-palette + .section-palette{
+  border-top: 0;
+}
+.section-palette + .section-palette::before{
+  opacity: 0.85;
+}
+/* =========================
+   CTA FINAL – BOTÓN SIMPLE
+========================= */
+.section-cta{
+  padding: 70px 0 90px;
+  background:
+    radial-gradient(700px 360px at 50% 0%, rgba(200,163,106,0.25), transparent 60%),
+    linear-gradient(180deg, #fbf7ef, #ffffff);
+  border-top: 1px solid rgba(17,24,39,0.08);
+}
+
+.cta-simple{
+  display: flex;
+  justify-content: center;
+}
+
+.btn-cta-simple{
+  padding: 18px 30px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  border-radius: 16px;
+  box-shadow: 0 22px 60px rgba(200,163,106,0.28);
+  transition: transform .18s ease, box-shadow .22s ease;
+}
+
+.btn-cta-simple:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 34px 90px rgba(200,163,106,0.40);
 }
